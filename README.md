@@ -48,3 +48,33 @@ been made:
 * Generally the build system should run on all host systems which have a
   *Docker* runtime environment installed. It has, however, only be tested on
   macOS. Testing on other platforms is higly appreciated.
+
+## Usage
+
+The build system can be built by just typing:
+
+```
+$ make
+```
+
+Subsequently a corresponding container images shall have been build:
+
+```
+$ docker images
+REPOSITORY                                    TAG                 IMAGE ID            CREATED             SIZE
+confluent-kafka-go-build-system               1.15.6-alpine3.12   0d3014dbeeaf        5 minutes ago       793MB
+```
+
+The example application can be built with the following commands:
+
+```
+$ cd example
+$ make
+```
+
+Verification that static application was build:
+
+```
+$ file bin/example-amd64 
+bin/example-amd64: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, stripped
+```
